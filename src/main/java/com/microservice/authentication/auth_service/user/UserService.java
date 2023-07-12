@@ -57,6 +57,7 @@ public class UserService {
             );
             var user = userRepository.findUserByEmail(request.getEmail()).orElseThrow();
             var jwtToken = jwtService.generateToken(user);
+            System.out.println(user);
             return AuthenticationResponse.builder()
                     .token(jwtToken).build();
         } catch (Exception e) {
